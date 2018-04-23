@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="BullsAndCows@localhost">
+  <database-model serializer="dbm" rdbms="POSTGRES" format-version="4.7">
+    <root id="1"/>
+    <database id="2" parent="1" name="BullsAndCows">
+      <ObjectId>24913</ObjectId>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </database>
+    <database id="3" parent="1" name="postgres">
+      <ObjectId>12002</ObjectId>
+    </database>
+    <database id="4" parent="1" name="MusicLibrary">
+      <ObjectId>16393</ObjectId>
+    </database>
+    <database id="5" parent="1" name="TaskTracker">
+      <ObjectId>16468</ObjectId>
+    </database>
+    <database id="6" parent="1" name="Bookstore">
+      <ObjectId>16704</ObjectId>
+    </database>
+    <role id="7" parent="1" name="postgres">
+      <ObjectId>10</ObjectId>
+      <SuperRole>1</SuperRole>
+      <Inherit>1</Inherit>
+      <CreateRole>1</CreateRole>
+      <CreateDb>1</CreateDb>
+      <CanLogin>1</CanLogin>
+      <Replication>1</Replication>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <schema id="8" parent="2" name="public">
+      <ObjectId>2200</ObjectId>
+      <IntrospectionTimestamp>2018-04-22.10:26:28.678</IntrospectionTimestamp>
+      <IntrospectionStateNumber>1149</IntrospectionStateNumber>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="9" parent="2" name="pg_catalog">
+      <ObjectId>11</ObjectId>
+    </schema>
+    <schema id="10" parent="2" name="pg_toast">
+      <ObjectId>99</ObjectId>
+    </schema>
+    <schema id="11" parent="2" name="pg_temp_1">
+      <ObjectId>11194</ObjectId>
+    </schema>
+    <schema id="12" parent="2" name="pg_toast_temp_1">
+      <ObjectId>11195</ObjectId>
+    </schema>
+    <schema id="13" parent="2" name="information_schema">
+      <ObjectId>11459</ObjectId>
+    </schema>
+    <sequence id="14" parent="8" name="Rating_rating_id_seq">
+      <ObjectId>24932</ObjectId>
+      <StateNumber>1141</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+    </sequence>
+    <sequence id="15" parent="8" name="Users_user_id_seq">
+      <ObjectId>24941</ObjectId>
+      <StateNumber>1146</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+    </sequence>
+    <table id="16" parent="8" name="Rating">
+      <ObjectId>24914</ObjectId>
+      <StateNumber>1148</StateNumber>
+    </table>
+    <table id="17" parent="8" name="User">
+      <ObjectId>24917</ObjectId>
+      <StateNumber>1149</StateNumber>
+    </table>
+    <column id="18" parent="16" name="steps">
+      <Position>3</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>1128</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="19" parent="16" name="user_id">
+      <Position>4</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>1130</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="20" parent="16" name="rating_id">
+      <Position>5</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1141</StateNumber>
+      <DefaultExpression>nextval(&apos;&quot;Rating_rating_id_seq&quot;&apos;::regclass)</DefaultExpression>
+      <TypeId>20</TypeId>
+      <SequenceName>Rating_rating_id_seq</SequenceName>
+    </column>
+    <index id="21" parent="16" name="rating_id">
+      <ObjectId>24939</ObjectId>
+      <ColNames>rating_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="22" parent="16" name="fki_user_user_id">
+      <ObjectId>24929</ObjectId>
+      <ColNames>user_id</ColNames>
+    </index>
+    <key id="23" parent="16" name="rating_id">
+      <ObjectId>24940</ObjectId>
+      <ColNames>rating_id</ColNames>
+      <UnderlyingIndexName>rating_id</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="24" parent="16" name="user_user_id">
+      <ObjectId>24950</ObjectId>
+      <ColNames>user_id</ColNames>
+      <RefTableId>24917</RefTableId>
+      <RefColPositions>4</RefColPositions>
+      <RefTableName>User</RefTableName>
+      <RefKeyName>user_id</RefKeyName>
+      <RefColNames>user_id</RefColNames>
+    </foreign-key>
+    <column id="25" parent="17" name="login">
+      <Position>2</Position>
+      <DataType>char(20)|0</DataType>
+      <StateNumber>1133</StateNumber>
+      <TypeId>1042</TypeId>
+    </column>
+    <column id="26" parent="17" name="password">
+      <Position>3</Position>
+      <DataType>char(20)|0</DataType>
+      <StateNumber>1137</StateNumber>
+      <TypeId>1042</TypeId>
+    </column>
+    <column id="27" parent="17" name="user_id">
+      <Position>4</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1146</StateNumber>
+      <DefaultExpression>nextval(&apos;&quot;Users_user_id_seq&quot;&apos;::regclass)</DefaultExpression>
+      <TypeId>20</TypeId>
+      <SequenceName>Users_user_id_seq</SequenceName>
+    </column>
+    <index id="28" parent="17" name="login">
+      <ObjectId>24930</ObjectId>
+      <ColNames>login</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="29" parent="17" name="user_id">
+      <ObjectId>24948</ObjectId>
+      <ColNames>user_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="30" parent="17" name="user_id">
+      <ObjectId>24949</ObjectId>
+      <ColNames>user_id</ColNames>
+      <UnderlyingIndexName>user_id</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="31" parent="17" name="login">
+      <ObjectId>24931</ObjectId>
+      <ColNames>login</ColNames>
+      <UnderlyingIndexName>login</UnderlyingIndexName>
+    </key>
+  </database-model>
+</dataSource>
